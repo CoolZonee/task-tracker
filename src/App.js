@@ -10,6 +10,8 @@ const App = () => {
 
   useEffect(() => {
     refreshTask()
+    console.log(tasks)
+
   }, [])
 
 // Refresh Task
@@ -28,8 +30,10 @@ const deleteTask = (id) => {
 }
 
 // Toggle Reminder
-const toggleReminder = (id) => {
-  setTasks(tasks.map((task) => task.id === id ? { ...task, reminder: !task.reminder } : task))
+const toggleReminder = (task) => {
+  task.reminder = !task.reminder  
+  taskService.update(task.id, task).then(res => refreshTask())
+  setTasks(tasks.map((x) => x.id === task.id ? { ...x, reminder: !x.reminder } : x))
 }
 
   return (
@@ -37,7 +41,9 @@ const toggleReminder = (id) => {
       <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
       {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? (
-        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>
+        <Tasks tasks={tasks} 
+        onDelete={deleteTask}
+        onToggle={toggleReminder}/>
         ) : (
           'No Tasks to Show'
         )}
