@@ -8,10 +8,9 @@ const App = () => {
   const [showAddTask, setShowAddTask] = useState(false)
   const [tasks, setTasks] = useState([])
 
+
   useEffect(() => {
     refreshTask()
-    console.log(tasks)
-
   }, [])
 
 // Refresh Task
