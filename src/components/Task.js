@@ -5,10 +5,9 @@ import Modal from './Modal/Modal'
 const Task = ({ task, onDelete, onToggle }) => {
     const [showModal, setShowModal] = useState(false)
 
-    const toggleModal = useCallback (() => {
-        setShowModal(false);
-    },[])
-
+    const toggleModal = useCallback(() => {
+        setShowModal(false)
+    }, [])
     return (
         <div className={`task ${task.reminder ? 'reminder' : '' }`} onDoubleClick={() => onToggle(task)}>
             <h3>{task.text} 

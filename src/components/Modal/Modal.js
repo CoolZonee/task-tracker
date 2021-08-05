@@ -4,7 +4,7 @@ import ReactDOM from "react-dom"
 import React, { useEffect } from "react"
 
 const Modal = ({ toggleModal, showModal, onDelete, id }) => {
-
+    const nodeRef = React.useRef(null)
     useEffect(() => {
         // Esc key to close modal
         const closeOnEscapeKeyDown = (e) => {
@@ -20,11 +20,12 @@ const Modal = ({ toggleModal, showModal, onDelete, id }) => {
 
     return ReactDOM.createPortal(
         <CSSTransition
+            nodeRef = {nodeRef}
             in = {showModal}
             unmountOnExit
             timeout={{ enter:0, exit: 300}}
         >
-        <div className={"modal"} onClick={toggleModal}>
+        <div ref={nodeRef} className={"modal"} onClick={toggleModal}>
             <div className="modal-content" onClick={e => e.stopPropagation()}>
                 <div className="modal-header">
                     <h4 className="modal-title">Delete Task</h4>

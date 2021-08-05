@@ -13,27 +13,27 @@ const App = () => {
     refreshTask()
   }, [])
 
-// Refresh Task
-const refreshTask = () => {
-  taskService.getAll().then(res => setTasks(res.data))
-}
+  // Refresh Task
+  const refreshTask = () => {
+    taskService.getAll().then(res => setTasks(res.data))
+  }
 
-// Add Task
-const addTask = (task) => {
-  taskService.create(task).then(res => refreshTask())
-}
+  // Add Task
+  const addTask = (task) => {
+    taskService.create(task).then(res => refreshTask())
+  }
 
-// Delete Task
-const deleteTask = (id) => {
-  taskService.delete(id).then(res => refreshTask())
-}
+  // Delete Task
+  const deleteTask = (id) => {
+    taskService.delete(id).then(res => refreshTask())
+  }
 
-// Toggle Reminder
-const toggleReminder = (task) => {
-  task.reminder = !task.reminder  
-  taskService.update(task.id, task).then(res => refreshTask())
-  setTasks(tasks.map((x) => x.id === task.id ? { ...x, reminder: !x.reminder } : x))
-}
+  // Toggle Reminder
+  const toggleReminder = (task) => {
+    task.reminder = !task.reminder  
+    taskService.update(task.id, task).then(res => refreshTask())
+    setTasks(tasks.map((x) => x.id === task.id ? { ...x, reminder: !x.reminder } : x))
+  }
 
   return (
     <div className='container'>
