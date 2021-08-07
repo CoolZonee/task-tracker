@@ -3,6 +3,7 @@ import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 import taskService from './services/task.service'
 import DarkModeToggle from 'react-dark-mode-toggle'
+import { Helmet } from 'react-helmet'
 import { useState, useEffect } from "react"
 
 const App = () => {
@@ -37,7 +38,10 @@ const App = () => {
   }
 
   return (
-    <div className={`container ${darkMode ? 'dark' : ''}`}>
+    <>
+      <Helmet>
+        <style>{`body {background-color: ${darkMode ? '#141616' : 'white'};}`}</style>
+      </Helmet>
       <div className="darkModeButton">
         <DarkModeToggle 
           onChange={setDarkMode}
@@ -59,7 +63,7 @@ const App = () => {
             'No Tasks to Show'
           )}
       </div>
-    </div>
+    </>
   );
 }
 

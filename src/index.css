@@ -6,16 +6,12 @@
   padding: 0;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-}
-
 :root {
   --dark-bg-color: #141616;
 }
 
-.container {
-  height: 100vh;
+body {
+  font-family: 'Poppins', sans-serif;
   transition: background-color 0.3s ease;
 }
 
@@ -33,6 +29,7 @@ body {
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+  background-color: white;
   transition: background-color 0.3s ease;
 }
 
