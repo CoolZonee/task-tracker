@@ -2,12 +2,13 @@ import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 import taskService from './services/task.service'
+import DarkModeToggle from 'react-dark-mode-toggle'
 import { useState, useEffect } from "react"
 
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(false)
   const [tasks, setTasks] = useState([])
-
+  const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
     refreshTask()
@@ -36,16 +37,28 @@ const App = () => {
   }
 
   return (
-    <div className='container'>
-      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
-      {showAddTask && <AddTask onAdd={addTask} />}
-      {tasks.length > 0 ? (
-        <Tasks tasks={tasks} 
-        onDelete={deleteTask}
-        onToggle={toggleReminder}/>
-        ) : (
-          'No Tasks to Show'
-        )}
+    <div className={`container ${darkMode ? 'dark' : ''}`}>
+      <div className="darkModeButton">
+        <DarkModeToggle 
+          onChange={setDarkMode}
+          checked={darkMode}
+          size={70}
+          speed={2.0}
+        />
+      </div>
+      <div className={`task-container ${darkMode ? 'dark' : ''}`}>
+        <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
+        {showAddTask && <AddTask onAdd={addTask} />}
+        {tasks.length > 0 ? (
+          <Tasks tasks={tasks} 
+          onDelete={deleteTask}
+          onToggle={toggleReminder}
+          darkMode={darkMode}
+          />
+          ) : (
+            'No Tasks to Show'
+          )}
+      </div>
     </div>
   );
 }
