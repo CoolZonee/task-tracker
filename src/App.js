@@ -52,7 +52,7 @@ const App = () => {
       </div>
       <div className={`task-container ${darkMode ? 'dark' : ''}`}>
         <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
-        {showAddTask && <AddTask onAdd={addTask} />}
+        {showAddTask && <AddTask onAdd={addTask} darkMode={darkMode} />}
         {tasks.length > 0 ? (
           <Tasks tasks={tasks} 
           onDelete={deleteTask}

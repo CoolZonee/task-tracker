@@ -8,6 +8,7 @@
 
 :root {
   --dark-bg-color: #141616;
+  --dark-bg-light:  #1e2020;
 }
 
 body {
@@ -81,7 +82,7 @@ body {
 }
 
 .task.dark {
-  background-color: #1e2020;
+  background-color: var(--dark-bg-light);
 }
 
 .task.reminder {
@@ -112,6 +113,12 @@ body {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+  transition: background-color 0.5s ease;
+}
+
+.form-control.dark input{
+  color: white;
+  background-color: var(--dark-bg-light);
 }
 
 .form-control-check {

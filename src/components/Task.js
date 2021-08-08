@@ -9,7 +9,7 @@ const Task = ({ task, onDelete, onToggle, darkMode }) => {
         setShowModal(false)
     }, [])
     return (
-        <div className={`task ${task.reminder ? 'reminder' : '' } ${darkMode ? 'dark' : ''}`} onDoubleClick={() => onToggle(task)}>
+        <div className={`task ${task.reminder ? 'reminder ' : '' }${darkMode ? 'dark' : ''}`} onDoubleClick={() => onToggle(task)}>
             <h3>{task.text} 
             <FaTimes 
                 style={{ color: 'red', cursor: 'pointer' }} 
