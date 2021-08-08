@@ -6,11 +6,23 @@
   padding: 0;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
+:root {
+  --dark-bg-color: #141616;
+  --dark-bg-light:  #1e2020;
 }
 
-.container {
+body {
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.container.dark {
+  background-color: var(--dark-bg-color);
+}
+
+.task-container {
+  position: relative;
+  top: 50px;
   max-width: 500px;
   margin: 30px auto;
   overflow: auto;
@@ -18,6 +30,13 @@ body {
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
+
+.task-container.dark {
+  color: white;
+  background-color: var(--dark-bg-color);
 }
 
 .header {
@@ -59,6 +78,11 @@ body {
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task.dark {
+  background-color: var(--dark-bg-light);
 }
 
 .task.reminder {
@@ -89,6 +113,12 @@ body {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+  transition: background-color 0.5s ease;
+}
+
+.form-control.dark input{
+  color: white;
+  background-color: var(--dark-bg-light);
 }
 
 .form-control-check {
@@ -106,3 +136,8 @@ body {
   height: 20px;
 }
 
+.darkModeButton {
+  position: absolute;
+  top: 50px;
+  right: 50px
+}
