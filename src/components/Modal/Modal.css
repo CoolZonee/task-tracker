@@ -1,4 +1,9 @@
 /* Modal */
+:root {
+  --dark-bg-color: #141616;
+  --dark-bg-light:  #1e2020;
+}
+
 .modal {
     position: fixed;
     left: 0;
@@ -31,6 +36,11 @@
     transition: all 0.3s ease-in-out;
   }
 
+  .modal-content.dark {
+    color: white;
+    background-color: var(--dark-bg-color);
+  }
+
   .modal.modal.enter-done .modal-content {
     transform: translateY(0);
   }
@@ -55,6 +65,11 @@
     padding: 10px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
+  }
+
+  .modal-body.dark {
+    border-top: 1px solid var(--dark-bg-light);
+    border-bottom: 1px solid var(--dark-bg-light);
   }
   
   .modal-footer {

@@ -15,7 +15,7 @@ const Task = ({ task, onDelete, onToggle, darkMode }) => {
                 style={{ color: 'red', cursor: 'pointer' }} 
                 onClick={()=>setShowModal(true)} /></h3>
             <p>{task.day}</p>
-            <Modal toggleModal={toggleModal} showModal={showModal} onDelete={onDelete} id={task.id} />
+            <Modal toggleModal={toggleModal} showModal={showModal} onDelete={onDelete} id={task.id} darkMode={darkMode} />
         </div>
         
     )
